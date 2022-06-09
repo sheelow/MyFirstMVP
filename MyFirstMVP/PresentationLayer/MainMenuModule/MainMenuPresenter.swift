@@ -10,7 +10,7 @@ import UIKit
 
 //MARK: - Protocols
 protocol MainMenuViewProtocol: AnyObject {
-    func setupTableView()
+    func configureTableView()
     func reloadTableView()
 }
 
@@ -27,17 +27,17 @@ class MainMenuPresenter: MainMenuPresenterProtocol {
     
     //MARK: - Properties
     weak var view: MainMenuViewProtocol?
-    private var service: MenuService?
+    private var service: NetworkService?
     private var model: [MenuModel] = []
     
     init() {
-        self.service = MenuService()
+        self.service = NetworkService()
     }
     
     //MARK: - Methods
     func viewDidLoad() {
         fetchMenuData()
-        view?.setupTableView()
+        view?.configureTableView()
     }
     
     func numberOfRowsInSection() -> Int {

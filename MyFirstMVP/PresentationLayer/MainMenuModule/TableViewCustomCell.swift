@@ -14,8 +14,7 @@ class TableViewCustomCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
-        nameLabel.numberOfLines = 1
-//        nameLabel.shadowOffset = .zero
+        nameLabel.numberOfLines = 0
         nameLabel.font = .systemFont(ofSize: 18)
         nameLabel.textColor = .black
         return nameLabel
@@ -25,7 +24,6 @@ class TableViewCustomCell: UITableViewCell {
         let descriptionLabel = UILabel()
         descriptionLabel.textAlignment = .left
         descriptionLabel.numberOfLines = 0
-//        descriptionLabel.shadowOffset = .zero
         descriptionLabel.font = .systemFont(ofSize: 14)
         descriptionLabel.textColor = .black
         return descriptionLabel
@@ -41,6 +39,7 @@ class TableViewCustomCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureCell()
+        selectionStyle = .none
     }
     
     required init?(coder: NSCoder) {
@@ -76,7 +75,6 @@ class TableViewCustomCell: UITableViewCell {
             make.left.equalTo(photoImageView.snp.right).offset(10)
             make.top.equalTo(nameLabel.snp.bottom).offset(10)
             make.right.equalToSuperview().inset(10)
-//            make.bottom.equalToSuperview().inset(10)
         }
     }
 }

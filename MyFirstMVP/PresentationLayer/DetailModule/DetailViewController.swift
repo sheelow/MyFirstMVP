@@ -27,6 +27,7 @@ class DetailViewController: UIViewController {
         return photoImageView
     }()
 
+    //MARK: - Init
     init(presenter: DetailPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -36,6 +37,7 @@ class DetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
@@ -45,6 +47,7 @@ class DetailViewController: UIViewController {
         configureView()
     }
     
+    //MARK: - Methods
     private func configureView() {
         
         view.addSubview(photoImageView)
@@ -64,6 +67,7 @@ class DetailViewController: UIViewController {
     }
 }
 
+//MARK: - Extensions
 extension DetailViewController: DetailViewProtocol {
     
     func setContent(title: String, description: String, image: UIImage) {

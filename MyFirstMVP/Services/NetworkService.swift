@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MenuService {
+class NetworkService {
     
     func fetchMenuData(_ completion: @escaping ([MenuModel]) -> Void) {
         let shashlykImage = UIImage(imageLiteralResourceName: "shashlyk")
@@ -29,6 +29,16 @@ class MenuService {
         
         
         let result: [MenuModel] = [shashlyk, fish, pelmeni, stake, chips, beer, vine]
+        
+        completion(result)
+    }
+    
+    func fetchUserdData(_ completion: @escaping (UserModel) -> Void) {
+        let userAvatar = UIImage(imageLiteralResourceName: "ava")
+        
+        let firstUser = UserModel(name: "Name", lastName: "LastName", phone: "+7-960-000-0000", email: "userNumberOne@mail.ru", avatar: userAvatar)
+        
+        let result: UserModel = firstUser
         
         completion(result)
     }

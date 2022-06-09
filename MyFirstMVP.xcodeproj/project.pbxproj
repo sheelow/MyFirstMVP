@@ -15,16 +15,15 @@
 		97097B3E2851CD560078FED9 /* MainMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B3D2851CD560078FED9 /* MainMenuPresenter.swift */; };
 		97097B402851CD860078FED9 /* TableViewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B3F2851CD860078FED9 /* TableViewCustomCell.swift */; };
 		97097B432851CDC20078FED9 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 97097B422851CDC20078FED9 /* SnapKit */; };
-		97097B462851E42E0078FED9 /* MenuService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B452851E42E0078FED9 /* MenuService.swift */; };
+		97097B462851E42E0078FED9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B452851E42E0078FED9 /* NetworkService.swift */; };
 		97097B4A2851EA830078FED9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B492851EA830078FED9 /* ProfileViewController.swift */; };
 		97097B4C2851EA910078FED9 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B4B2851EA910078FED9 /* ProfilePresenter.swift */; };
-		97097B4F2851EABE0078FED9 /* ProfileCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B4E2851EABE0078FED9 /* ProfileCustomView.swift */; };
-		97097B512851EB1E0078FED9 /* DetailCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B502851EB1E0078FED9 /* DetailCustomView.swift */; };
 		97097B532851EB2C0078FED9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B522851EB2C0078FED9 /* DetailViewController.swift */; };
 		97097B552851EB360078FED9 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B542851EB360078FED9 /* DetailPresenter.swift */; };
 		97097B572851EB600078FED9 /* CollectionMenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B562851EB600078FED9 /* CollectionMenuPresenter.swift */; };
 		97097B592851EB750078FED9 /* CollectionMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B582851EB750078FED9 /* CollectionMenuViewController.swift */; };
 		97097B5B2851EBA50078FED9 /* CollectionViewCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97097B5A2851EBA50078FED9 /* CollectionViewCustomCell.swift */; };
+		979D629E28521A6A00EEE341 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979D629D28521A6A00EEE341 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,16 +36,15 @@
 		97097B3B2851CCEC0078FED9 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		97097B3D2851CD560078FED9 /* MainMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuPresenter.swift; sourceTree = "<group>"; };
 		97097B3F2851CD860078FED9 /* TableViewCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCustomCell.swift; sourceTree = "<group>"; };
-		97097B452851E42E0078FED9 /* MenuService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuService.swift; sourceTree = "<group>"; };
+		97097B452851E42E0078FED9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		97097B492851EA830078FED9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		97097B4B2851EA910078FED9 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
-		97097B4E2851EABE0078FED9 /* ProfileCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCustomView.swift; sourceTree = "<group>"; };
-		97097B502851EB1E0078FED9 /* DetailCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomView.swift; sourceTree = "<group>"; };
 		97097B522851EB2C0078FED9 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		97097B542851EB360078FED9 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		97097B562851EB600078FED9 /* CollectionMenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMenuPresenter.swift; sourceTree = "<group>"; };
 		97097B582851EB750078FED9 /* CollectionMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionMenuViewController.swift; sourceTree = "<group>"; };
 		97097B5A2851EBA50078FED9 /* CollectionViewCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCustomCell.swift; sourceTree = "<group>"; };
+		979D629D28521A6A00EEE341 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +113,6 @@
 		97097B392851CC8A0078FED9 /* DetailModule */ = {
 			isa = PBXGroup;
 			children = (
-				97097B502851EB1E0078FED9 /* DetailCustomView.swift */,
 				97097B542851EB360078FED9 /* DetailPresenter.swift */,
 				97097B522851EB2C0078FED9 /* DetailViewController.swift */,
 			);
@@ -126,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				97097B3B2851CCEC0078FED9 /* MenuModel.swift */,
+				979D629D28521A6A00EEE341 /* UserModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,7 +131,7 @@
 		97097B442851E3FB0078FED9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				97097B452851E42E0078FED9 /* MenuService.swift */,
+				97097B452851E42E0078FED9 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -151,7 +149,6 @@
 		97097B482851EA3A0078FED9 /* ProfileModule */ = {
 			isa = PBXGroup;
 			children = (
-				97097B4E2851EABE0078FED9 /* ProfileCustomView.swift */,
 				97097B4B2851EA910078FED9 /* ProfilePresenter.swift */,
 				97097B492851EA830078FED9 /* ProfileViewController.swift */,
 			);
@@ -235,15 +232,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				97097B532851EB2C0078FED9 /* DetailViewController.swift in Sources */,
-				97097B512851EB1E0078FED9 /* DetailCustomView.swift in Sources */,
 				97097B5B2851EBA50078FED9 /* CollectionViewCustomCell.swift in Sources */,
 				97097B402851CD860078FED9 /* TableViewCustomCell.swift in Sources */,
-				97097B462851E42E0078FED9 /* MenuService.swift in Sources */,
+				97097B462851E42E0078FED9 /* NetworkService.swift in Sources */,
 				97097B592851EB750078FED9 /* CollectionMenuViewController.swift in Sources */,
 				97097B4C2851EA910078FED9 /* ProfilePresenter.swift in Sources */,
-				97097B4F2851EABE0078FED9 /* ProfileCustomView.swift in Sources */,
 				97097B3E2851CD560078FED9 /* MainMenuPresenter.swift in Sources */,
 				97097B352851CB600078FED9 /* MainMenuViewController.swift in Sources */,
+				979D629E28521A6A00EEE341 /* UserModel.swift in Sources */,
 				97097B4A2851EA830078FED9 /* ProfileViewController.swift in Sources */,
 				97097B212851C9FC0078FED9 /* AppDelegate.swift in Sources */,
 				97097B3C2851CCEC0078FED9 /* MenuModel.swift in Sources */,

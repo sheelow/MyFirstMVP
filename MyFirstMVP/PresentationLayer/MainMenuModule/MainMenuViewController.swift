@@ -12,12 +12,22 @@ class MainMenuViewController: UIViewController {
     //MARK: - Properties
     private var presenter: MainMenuPresenterProtocol
     
-    private var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(TableViewCustomCell.self, forCellReuseIdentifier: "TableViewCustomCell")
         return tableView
     }()
     
+    private lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = "Поиск блюда..."
+        searchBar.sizeToFit()
+        searchBar.backgroundColor = .white
+        return searchBar
+    }()
+    
+    //MARK: - Init
     init(presenter: MainMenuPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
@@ -27,10 +37,13 @@ class MainMenuViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+//        configureSearchBar()
         presenter.view = self
         presenter.viewDidLoad()
+        searchBar.delegate = self
         view.backgroundColor = .white
         self.navigationItem.title = "Выберите блюдо"
     }
@@ -39,18 +52,35 @@ class MainMenuViewController: UIViewController {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
     }
+    
+//    private func configureSearchBar() {
+//        view.addSubview(searchBar)
+//        searchBar.snp.makeConstraints { make in
+//            make.height.equalTo(50)
+//            make.top.equalToSuperview().inset(100)
+//            make.left.right.equalToSuperview()
+//        }
+//    }
 }
 
 //MARK: - Extensions
 
 extension MainMenuViewController: MainMenuViewProtocol {
     
-    func setupTableView() {
+    func configureTableView() {
+        view.addSubview(searchBar)
+        searchBar.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.top.equalToSuperview().inset(100)
+            make.left.right.equalToSuperview()
+        }
+        
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(searchBar.snp.bottom)
+            make.bottom.left.right.equalToSuperview()
         }
     }
     
@@ -71,8 +101,16 @@ extension MainMenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
         guard let naviGationController = self.navigationController else { return }
-        tableView.deselectRow(at: indexPath, animated: true)
         presenter.didSelectRowAt(indexPath: indexPath, naviGationController)
+    }
+}
+
+extension MainMenuViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        
     }
 }

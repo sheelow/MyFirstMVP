@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let tabBarController = UITabBarController()
+        tabBarController.tabBar.backgroundColor = .white
         
         let firstPresenter: MainMenuPresenterProtocol = MainMenuPresenter()
         let firstNC = UINavigationController(rootViewController: MainMenuViewController(presenter: firstPresenter))
@@ -28,9 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         tabBarController.viewControllers = [firstNC, secondNC, thirdNC]
         
-        firstNC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
-        secondNC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 1)
-        thirdNC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 2)
+        firstNC.tabBarItem = UITabBarItem.init(title: "TableView", image: .init(systemName: "menucard.fill"), tag: 0)
+        secondNC.tabBarItem = UITabBarItem.init(title: "CollectionView", image: .init(systemName: "book.fill"), tag: 1)
+        thirdNC.tabBarItem = UITabBarItem.init(title: "Profile", image: .init(systemName: "person.fill"), tag: 2)
         
         window?.rootViewController = tabBarController
         window?.backgroundColor = .white
