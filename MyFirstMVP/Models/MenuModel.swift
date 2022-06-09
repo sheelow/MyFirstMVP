@@ -8,9 +8,8 @@
 import Foundation
 import UIKit
 
-struct MainMenu {
+struct MenuModel {
     var name: String
     var description: String
-    var recept: String
     var photo: UIImage
 }

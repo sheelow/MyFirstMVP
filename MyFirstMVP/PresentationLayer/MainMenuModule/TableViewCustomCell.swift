@@ -8,13 +8,14 @@
 import UIKit
 import SnapKit
 
-class TableViewCustomCellTableViewCell: UITableViewCell {
+class TableViewCustomCell: UITableViewCell {
     
     //MARK: - Properties
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
-        nameLabel.numberOfLines = 0
+        nameLabel.numberOfLines = 1
+//        nameLabel.shadowOffset = .zero
         nameLabel.font = .systemFont(ofSize: 18)
         nameLabel.textColor = .black
         return nameLabel
@@ -24,6 +25,7 @@ class TableViewCustomCellTableViewCell: UITableViewCell {
         let descriptionLabel = UILabel()
         descriptionLabel.textAlignment = .left
         descriptionLabel.numberOfLines = 0
+//        descriptionLabel.shadowOffset = .zero
         descriptionLabel.font = .systemFont(ofSize: 14)
         descriptionLabel.textColor = .black
         return descriptionLabel
@@ -35,7 +37,7 @@ class TableViewCustomCellTableViewCell: UITableViewCell {
         return photoImageView
     }()
     
-    
+    //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureCell()
@@ -45,6 +47,12 @@ class TableViewCustomCellTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Methods
+    func setContent(name: String, description: String, image: UIImage) {
+        nameLabel.text = name
+        descriptionLabel.text = description
+        photoImageView.image = image
+    }
     
     private func configureCell() {
         addSubview(photoImageView)
@@ -56,7 +64,19 @@ class TableViewCustomCellTableViewCell: UITableViewCell {
             make.height.equalTo(100)
         }
         
+        addSubview(nameLabel)
+        nameLabel.snp.makeConstraints { make in
+            make.left.equalTo(photoImageView.snp.right).offset(10)
+            make.top.equalToSuperview().inset(10)
+            make.right.equalToSuperview().inset(10)
+        }
         
+        addSubview(descriptionLabel)
+        descriptionLabel.snp.makeConstraints { make in
+            make.left.equalTo(photoImageView.snp.right).offset(10)
+            make.top.equalTo(nameLabel.snp.bottom).offset(10)
+            make.right.equalToSuperview().inset(10)
+//            make.bottom.equalToSuperview().inset(10)
+        }
     }
-        
 }
