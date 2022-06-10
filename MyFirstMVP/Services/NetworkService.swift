@@ -33,10 +33,10 @@ class NetworkService {
         completion(result)
     }
     
-    func fetchUserdData(_ completion: @escaping (UserModel) -> Void) {
-        let userAvatar = UIImage(imageLiteralResourceName: "ava")
+    func fetchUserData(_ completion: @escaping (UserModel) -> Void) {
+        let userAvatar = UIImage(imageLiteralResourceName: "avatar")
         
-        let firstUser = UserModel(name: "Name", lastName: "LastName", phone: "+7-960-000-0000", email: "userNumberOne@mail.ru", avatar: userAvatar)
+        let firstUser = UserModel(name: "Имя", lastName: "Фамилия", phone: "+7-960-000-0000", email: "userNumberOne@mail.ru", avatar: userAvatar)
         
         let result: UserModel = firstUser
         

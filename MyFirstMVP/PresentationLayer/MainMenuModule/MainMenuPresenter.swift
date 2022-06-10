@@ -58,7 +58,8 @@ class MainMenuPresenter: MainMenuPresenterProtocol {
     
     private func fetchMenuData() {
         service?.fetchMenuData({ [weak self] menu in
-            self?.model = menu
+            guard let self = self else { return }
+            self.model = menu
         })
     }
 }

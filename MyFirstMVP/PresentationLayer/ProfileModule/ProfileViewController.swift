@@ -15,7 +15,7 @@ class ProfileViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
-        nameLabel.text = "Name + LastName"
+        nameLabel.text = ""
         nameLabel.textAlignment = .center
         nameLabel.font = .systemFont(ofSize: 20)
         nameLabel.textColor = .black
@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController {
     
     private lazy var avatarImage: UIImageView = {
         let avatarImage = UIImageView()
-        avatarImage.image = UIImage(imageLiteralResourceName: "avatar")
+        avatarImage.image = UIImage(imageLiteralResourceName: "ava")
         avatarImage.contentMode = .scaleAspectFit
         return avatarImage
     }()
@@ -76,11 +76,24 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
-//        presenter.viewDidLoad()
+        presenter.viewDidLoad()
         configureView()
+        updateContent()
     }
     
     //MARK: - Methods
+    
+    func setContent(name: String, lastName: String, phone: String, email: String, image: UIImage) {
+        setTextToContent(name: name, lastName: lastName, phone: phone, email: email, image: image)
+    }
+    
+    private func setTextToContent(name: String, lastName: String, phone: String, email: String, image: UIImage) {
+        nameLabel.text = name + " " + lastName
+        phoneLabel.text = "Номер телефона: " + phone
+        emailLabel.text = "E-mail: " + email
+        avatarImage.image = image
+    }
+    
     private func configureView() {
         view.backgroundColor = .systemGray4
         self.navigationItem.title = "Ваш профиль"
@@ -139,5 +152,7 @@ class ProfileViewController: UIViewController {
 
 //MARK: - Extensions
 extension ProfileViewController: ProfileViewProtocol {
-    
+    func updateContent() {
+        presenter.getData()
+    }
 }
