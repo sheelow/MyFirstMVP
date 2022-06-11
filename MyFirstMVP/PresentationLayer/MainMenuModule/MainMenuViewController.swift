@@ -45,7 +45,7 @@ class MainMenuViewController: UIViewController {
         presenter.viewDidLoad()
         searchBar.delegate = self
         view.backgroundColor = .white
-        self.navigationItem.title = "Выберите блюдо"
+        self.navigationItem.title = "TableView"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,8 +109,12 @@ extension MainMenuViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension MainMenuViewController: UISearchBarDelegate {
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.endEditing(true)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        
+        print("Search = \(searchText)")
     }
 }

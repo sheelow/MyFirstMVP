@@ -96,7 +96,7 @@ class ProfileViewController: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .systemGray4
-        self.navigationItem.title = "Ваш профиль"
+        self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.backgroundColor = .white
         configureWhiteView()
         configureAvatarImageView()
