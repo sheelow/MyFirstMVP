@@ -26,6 +26,25 @@ final class DetailViewController: UIViewController {
         photoImageView.contentMode = .scaleAspectFit
         return photoImageView
     }()
+    
+    private lazy var orderButton: UIButton = {
+        let orderButton = UIButton(type: .system)
+        orderButton.setTitle("Заказать", for: .normal)
+        orderButton.setTitleColor(.white, for: .normal)
+        orderButton.titleLabel?.font = .systemFont(ofSize: 20)
+        orderButton.backgroundColor = .red
+        orderButton.layer.cornerRadius = 20
+        orderButton.addTarget(self, action: #selector(orderButtonTapped), for: .touchUpInside)
+        return orderButton
+    }()
+    
+    private lazy var orderLabel: UILabel = {
+        let orderLabel = UILabel()
+        orderLabel.textAlignment = .center
+        orderLabel.font = .systemFont(ofSize: 18)
+        orderLabel.textColor = .red
+        return orderLabel
+    }()
 
     //MARK: - Init
     init(presenter: DetailPresenterProtocol) {
@@ -49,21 +68,54 @@ final class DetailViewController: UIViewController {
     
     //MARK: - Methods
     private func configureView() {
-        
+        configurePhotoImage()
+        configureDescriptionLabel()
+        configureOrderButton()
+        configureOrderLabel()
+    }
+    
+    private func configurePhotoImage() {
         view.addSubview(photoImageView)
         photoImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(150)
+            make.top.equalToSuperview().inset(150)
             make.width.equalToSuperview()
             make.height.equalTo(400)
         }
+    }
     
+    private func configureDescriptionLabel() {
         view.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(photoImageView.snp.bottom).inset(20)
             make.width.equalToSuperview()
         }
+    }
+    
+    private func configureOrderButton() {
+        view.addSubview(orderButton)
+        orderButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().inset(100)
+            make.width.equalTo(300)
+            make.height.equalTo(50)
+        }
+    }
+    
+    private func configureOrderLabel() {
+        view.addSubview(orderLabel)
+        orderLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(orderButton.snp.top).offset(-20)
+            make.width.equalTo(300)
+        }
+    }
+    
+    @objc
+    func orderButtonTapped() {
+        guard let title = navigationItem.title else { return }
+        orderLabel.text = "\(title) в пути, милорд"
     }
 }
 
