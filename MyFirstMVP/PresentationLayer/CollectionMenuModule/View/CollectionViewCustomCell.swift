@@ -30,12 +30,6 @@ class CollectionViewCustomCell: UICollectionViewCell {
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = .white
-        contentView.layer.cornerRadius = 10
-        contentView.layer.shadowRadius = 10
-        contentView.layer.shadowOpacity = 0.2
-        contentView.layer.shadowOffset = CGSize(width: 5, height: 5)
-        clipsToBounds = false
         configureCell()
     }
     
@@ -50,13 +44,26 @@ class CollectionViewCustomCell: UICollectionViewCell {
     }
     
     private func configureCell() {
+        contentView.backgroundColor = .white
+        contentView.layer.cornerRadius = 10
+        contentView.layer.shadowRadius = 10
+        contentView.layer.shadowOpacity = 0.2
+        contentView.layer.shadowOffset = CGSize(width: 5, height: 5)
+        clipsToBounds = false
+        configurePhotoImage()
+        configureNameLabel()
+    }
+    
+    private func configurePhotoImage() {
         addSubview(photoImageView)
         photoImageView.snp.makeConstraints { make in
             make.left.top.right.bottom.equalToSuperview()
             make.width.equalTo(100)
             make.height.equalTo(100)
         }
-        
+    }
+    
+    private func configureNameLabel() {
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(photoImageView.snp.bottom).inset(25)

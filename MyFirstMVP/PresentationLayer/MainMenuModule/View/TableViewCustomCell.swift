@@ -54,6 +54,12 @@ class TableViewCustomCell: UITableViewCell {
     }
     
     private func configureCell() {
+        configurePhotoImage()
+        configureNameLabel()
+        configureDescriptionLabel()
+    }
+    
+    private func configurePhotoImage() {
         addSubview(photoImageView)
         photoImageView.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(10)
@@ -62,14 +68,18 @@ class TableViewCustomCell: UITableViewCell {
             make.width.equalTo(100)
             make.height.equalTo(100)
         }
-        
+    }
+    
+    private func configureNameLabel() {
         addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
             make.left.equalTo(photoImageView.snp.right).offset(10)
             make.top.equalToSuperview().inset(10)
             make.right.equalToSuperview().inset(10)
         }
-        
+    }
+    
+    private func configureDescriptionLabel() {
         addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
             make.left.equalTo(photoImageView.snp.right).offset(10)

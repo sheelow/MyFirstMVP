@@ -53,14 +53,14 @@ class MainMenuViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
-//    private func configureSearchBar() {
-//        view.addSubview(searchBar)
-//        searchBar.snp.makeConstraints { make in
-//            make.height.equalTo(50)
-//            make.top.equalToSuperview().inset(100)
-//            make.left.right.equalToSuperview()
-//        }
-//    }
+    private func configureSearchBar() {
+        view.addSubview(searchBar)
+        searchBar.snp.makeConstraints { make in
+            make.height.equalTo(50)
+            make.top.equalToSuperview().inset(100)
+            make.left.right.equalToSuperview()
+        }
+    }
 }
 
 //MARK: - Extensions
@@ -68,13 +68,7 @@ class MainMenuViewController: UIViewController {
 extension MainMenuViewController: MainMenuViewProtocol {
     
     func configureTableView() {
-        view.addSubview(searchBar)
-        searchBar.snp.makeConstraints { make in
-            make.height.equalTo(50)
-            make.top.equalToSuperview().inset(100)
-            make.left.right.equalToSuperview()
-        }
-        
+        configureSearchBar()
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
