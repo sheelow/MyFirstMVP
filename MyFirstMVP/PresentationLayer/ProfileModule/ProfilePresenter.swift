@@ -21,7 +21,7 @@ protocol ProfilePresenterProtocol: AnyObject {
 }
 
 //MARK: - Presenter
-class ProfilePresenter: ProfilePresenterProtocol {
+final class ProfilePresenter: ProfilePresenterProtocol {
     
     //MARK: - Properties
     weak var view: ProfileViewProtocol?

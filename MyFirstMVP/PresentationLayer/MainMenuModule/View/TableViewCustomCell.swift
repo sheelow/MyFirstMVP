@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class TableViewCustomCell: UITableViewCell {
+final class TableViewCustomCell: UITableViewCell {
     
     //MARK: - Properties
     private lazy var nameLabel: UILabel = {

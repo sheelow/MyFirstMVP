@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     //MARK: - Properties
     private var presenter: ProfilePresenterProtocol

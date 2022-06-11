@@ -23,7 +23,7 @@ protocol MainMenuPresenterProtocol: AnyObject {
 }
 
 //MARK: - Presenter
-class MainMenuPresenter: MainMenuPresenterProtocol {
+final class MainMenuPresenter: MainMenuPresenterProtocol {
     
     //MARK: - Properties
     weak var view: MainMenuViewProtocol?

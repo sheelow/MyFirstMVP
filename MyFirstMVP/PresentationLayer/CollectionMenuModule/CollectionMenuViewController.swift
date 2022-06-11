@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionMenuViewController: UIViewController {
+final class CollectionMenuViewController: UIViewController {
 
     //MARK: - Properties
     private var presenter: CollectionMenuPresenterProtocol

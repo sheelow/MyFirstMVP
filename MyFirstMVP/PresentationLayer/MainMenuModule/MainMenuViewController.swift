@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainMenuViewController: UIViewController {
+final class MainMenuViewController: UIViewController {
     
     //MARK: - Properties
     private var presenter: MainMenuPresenterProtocol

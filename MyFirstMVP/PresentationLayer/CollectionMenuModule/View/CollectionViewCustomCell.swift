@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class CollectionViewCustomCell: UICollectionViewCell {
+final class CollectionViewCustomCell: UICollectionViewCell {
     
     //MARK: - Properties
     private lazy var nameLabel: UILabel = {

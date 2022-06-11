@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class NetworkService {
+final class NetworkService {
     
     func fetchMenuData(_ completion: @escaping ([MenuModel]) -> Void) {
         
