@@ -8,9 +8,17 @@
 import UIKit
 import SnapKit
 
+struct CollectionViewCustomCellModel {
+    let name: String
+    let photo: UIImage
+}
+
 final class CollectionViewCustomCell: UICollectionViewCell {
     
     //MARK: - Properties
+    
+    var model: CollectionViewCustomCellModel?
+    
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .center
@@ -38,9 +46,9 @@ final class CollectionViewCustomCell: UICollectionViewCell {
     }
     
     //MARK: - Methods
-    func setContent(name: String, description: String, image: UIImage) {
-        nameLabel.text = name
-        photoImageView.image = image
+    func setContent() {
+        nameLabel.text = self.model?.name
+        photoImageView.image = self.model?.photo
     }
     
     private func configureCell() {

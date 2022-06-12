@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 //MARK: - Protocols
-protocol MainMenuViewProtocol: AnyObject {
+protocol TableMenuViewProtocol: AnyObject {
     func configureTableView()
     func reloadTableView()
 }
 
-protocol MainMenuPresenterProtocol: AnyObject {
-    var view: MainMenuViewProtocol? { get set }
+protocol TableMenuPresenterProtocol: AnyObject {
+    var view: TableMenuViewProtocol? { get set }
     func viewDidLoad()
     func numberOfRowsInSection() -> Int
     func cellForRow(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -23,10 +23,10 @@ protocol MainMenuPresenterProtocol: AnyObject {
 }
 
 //MARK: - Presenter
-final class MainMenuPresenter: MainMenuPresenterProtocol {
+final class TableMenuPresenter: TableMenuPresenterProtocol {
     
     //MARK: - Properties
-    weak var view: MainMenuViewProtocol?
+    weak var view: TableMenuViewProtocol?
     private var service: NetworkService?
     private var model: [MenuModel] = []
     
@@ -46,7 +46,8 @@ final class MainMenuPresenter: MainMenuPresenterProtocol {
     
     func cellForRow(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TableViewCustomCell", for: indexPath) as! TableViewCustomCell
-        cell.setContent(name: model[indexPath.row].name, description: model[indexPath.row].description, image: model[indexPath.row].photo)
+        cell.model = TableViewCustomCellModel(name: model[indexPath.row].name, description: model[indexPath.row].description, photo: model[indexPath.row].photo)
+        cell.setContent()
         return cell
     }
     

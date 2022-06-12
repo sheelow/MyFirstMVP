@@ -7,10 +7,10 @@
 
 import UIKit
 
-final class MainMenuViewController: UIViewController {
+final class TableMenuViewController: UIViewController {
     
     //MARK: - Properties
-    private var presenter: MainMenuPresenterProtocol
+    private var presenter: TableMenuPresenterProtocol
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -28,7 +28,7 @@ final class MainMenuViewController: UIViewController {
     }()
     
     //MARK: - Init
-    init(presenter: MainMenuPresenterProtocol) {
+    init(presenter: TableMenuPresenterProtocol) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -40,12 +40,11 @@ final class MainMenuViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configureSearchBar()
         presenter.view = self
         presenter.viewDidLoad()
         searchBar.delegate = self
         view.backgroundColor = .white
-        self.navigationItem.title = "TableView"
+        configureNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,11 +60,24 @@ final class MainMenuViewController: UIViewController {
             make.left.right.equalToSuperview()
         }
     }
+    
+    private func configureNavigationBar() {
+        self.navigationItem.title = "TableView"
+        
+        let profileButton = createCustomProfileButton(selector: #selector(profileButtonTapped))
+        navigationItem.rightBarButtonItem = profileButton
+    }
+    
+    @objc
+    private func profileButtonTapped() {
+        let presenter = ProfilePresenter()
+        let vc = ProfileViewController(presenter: presenter)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
-//MARK: - Extensions
-
-extension MainMenuViewController: MainMenuViewProtocol {
+//MARK: - TableMenuViewProtocol
+extension TableMenuViewController: TableMenuViewProtocol {
     
     func configureTableView() {
         configureSearchBar()
@@ -83,12 +95,12 @@ extension MainMenuViewController: MainMenuViewProtocol {
     }
 }
 
-extension MainMenuViewController: UITableViewDataSource, UITableViewDelegate {
+//MARK: - UITableViewDataSource, UITableViewDelegate
+extension TableMenuViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.numberOfRowsInSection()
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         presenter.cellForRow(tableView, cellForRowAt: indexPath)
@@ -101,7 +113,8 @@ extension MainMenuViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension MainMenuViewController: UISearchBarDelegate {
+//MARK: - UISearchBarDelegate
+extension TableMenuViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""

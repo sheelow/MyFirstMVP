@@ -82,7 +82,6 @@ final class ProfileViewController: UIViewController {
     }
     
     //MARK: - Methods
-    
     func setContent(name: String, lastName: String, phone: String, email: String, image: UIImage) {
         setTextToContent(name: name, lastName: lastName, phone: phone, email: email, image: image)
     }
@@ -95,7 +94,7 @@ final class ProfileViewController: UIViewController {
     }
     
     private func configureView() {
-        view.backgroundColor = .systemGray4
+        view.backgroundColor = .systemGray5
         self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.backgroundColor = .white
         configureWhiteView()
@@ -108,7 +107,7 @@ final class ProfileViewController: UIViewController {
         view.addSubview(whiteView)
         whiteView.snp.makeConstraints { make in
             make.width.equalToSuperview()
-            make.height.equalTo(100)
+            make.height.equalTo(90)
         }
     }
     

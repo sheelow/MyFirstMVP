@@ -20,6 +20,7 @@ protocol CollectionMenuPresenterProtocol: AnyObject {
     func numberOfRowsInSection() -> Int
     func cellForItemAt(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     func didSelectItemAt(indexPath: IndexPath, _ navigationController: UINavigationController)
+    func toProfileScreen(navigationController: UINavigationController)
 }
 
 //MARK: - Presenter
@@ -46,13 +47,20 @@ final class CollectionMenuPresenter: CollectionMenuPresenterProtocol {
     
     func cellForItemAt(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCustomCell", for: indexPath) as! CollectionViewCustomCell
-        cell.setContent(name: model[indexPath.row].name, description: model[indexPath.row].description, image: model[indexPath.row].photo)
+        cell.model = CollectionViewCustomCellModel(name: model[indexPath.row].name, photo: model[indexPath.row].photo)
+        cell.setContent()
         return cell
     }
     
     func didSelectItemAt(indexPath: IndexPath, _ navigationController: UINavigationController) {
         let presenter = DetailPresenter(model: model[indexPath.row])
         let vc = DetailViewController(presenter: presenter)
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func toProfileScreen(navigationController: UINavigationController) {
+        let presenter = ProfilePresenter()
+        let vc = ProfileViewController(presenter: presenter)
         navigationController.pushViewController(vc, animated: true)
     }
     

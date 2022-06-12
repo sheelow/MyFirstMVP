@@ -113,7 +113,7 @@ final class DetailViewController: UIViewController {
     }
     
     @objc
-    func orderButtonTapped() {
+    private func orderButtonTapped() {
         guard let title = navigationItem.title else { return }
         orderLabel.text = "\(title) в пути, милорд"
     }

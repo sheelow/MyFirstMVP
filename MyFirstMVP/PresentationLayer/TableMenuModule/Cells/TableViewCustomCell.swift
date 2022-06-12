@@ -8,9 +8,17 @@
 import UIKit
 import SnapKit
 
+struct TableViewCustomCellModel {
+    let name: String
+    let description: String
+    let photo: UIImage
+}
+
 final class TableViewCustomCell: UITableViewCell {
     
     //MARK: - Properties
+    var model: TableViewCustomCellModel?
+    
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.textAlignment = .left
@@ -47,10 +55,10 @@ final class TableViewCustomCell: UITableViewCell {
     }
     
     //MARK: - Methods
-    func setContent(name: String, description: String, image: UIImage) {
-        nameLabel.text = name
-        descriptionLabel.text = description
-        photoImageView.image = image
+    func setContent() {
+        nameLabel.text = self.model?.name
+        descriptionLabel.text = self.model?.description
+        photoImageView.image = self.model?.photo
     }
     
     private func configureCell() {

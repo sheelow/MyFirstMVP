@@ -39,13 +39,27 @@ final class CollectionMenuViewController: UIViewController {
         super.viewDidLoad()
         presenter.view = self
         presenter.viewDidLoad()
+        configureNavigationBar()
         view.backgroundColor = .systemGray4
-        self.navigationItem.title = "CollectionView"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    private func configureNavigationBar() {
+        self.navigationItem.title = "CollectionView"
+        
+        let profileButton = createCustomProfileButton(selector: #selector(profileButtonTapped))
+        navigationItem.rightBarButtonItem = profileButton
+    }
+    
+    @objc
+    private func profileButtonTapped() {
+        guard let navigationController = self.navigationController else { return }
+        presenter.toProfileScreen(navigationController: navigationController)
     }
 }
 

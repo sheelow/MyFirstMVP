@@ -18,10 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = CustomTabBar()
         tabBarController.selectedIndex = 0
         
-        window?.rootViewController = tabBarController
+        window?.rootViewController = LaunchScreenViewController()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
         
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
+            self.window?.rootViewController = tabBarController
+        }
         return true
     }
 }
