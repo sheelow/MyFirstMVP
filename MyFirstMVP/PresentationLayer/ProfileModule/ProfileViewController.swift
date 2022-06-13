@@ -53,6 +53,10 @@ final class ProfileViewController: UIViewController {
         let avatarImage = UIImageView()
         avatarImage.image = UIImage(imageLiteralResourceName: "ava")
         avatarImage.contentMode = .scaleAspectFit
+        avatarImage.layer.cornerRadius = 75
+        avatarImage.layer.borderWidth = 3
+        avatarImage.layer.borderColor = CGColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
+        avatarImage.layer.masksToBounds = true
         return avatarImage
     }()
     
@@ -60,6 +64,17 @@ final class ProfileViewController: UIViewController {
         let whiteView = UIView()
         whiteView.backgroundColor = .white
         return whiteView
+    }()
+    
+    private var gradientLayer: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+        let startColor = UIColor.systemGray3.cgColor
+        let endColor = UIColor.white.cgColor
+        gradientLayer.colors = [startColor, endColor]
+        gradientLayer.locations = [0, 0.8]
+        return gradientLayer
     }()
     
     //MARK: - Init
@@ -73,6 +88,10 @@ final class ProfileViewController: UIViewController {
     }
     
     //MARK: - Lifecycle
+    override func viewDidLayoutSubviews() {
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: self.view.bounds.size.width, height: self.view.bounds.size.height)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
@@ -94,7 +113,8 @@ final class ProfileViewController: UIViewController {
     }
     
     private func configureView() {
-        view.backgroundColor = .systemGray5
+//        view.backgroundColor = .systemGray5
+        view.layer.insertSublayer(gradientLayer, at: 0)
         self.navigationItem.title = "Profile"
         self.navigationController?.navigationBar.backgroundColor = .white
         configureWhiteView()
