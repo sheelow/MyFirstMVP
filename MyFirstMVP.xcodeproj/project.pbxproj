@@ -28,7 +28,6 @@
 		979EAC812855DA1400EA587A /* ViewController + CustomBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979EAC802855DA1400EA587A /* ViewController + CustomBarButtonItem.swift */; };
 		97AD1B812855ED5200D543F5 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD1B802855ED5200D543F5 /* LaunchScreenViewController.swift */; };
 		97AD1B842855F57900D543F5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97AD1B832855F57900D543F5 /* FavoritesViewController.swift */; };
-		97E8B3C62857703600F9870E /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E8B3C52857703600F9870E /* UIViewController+Alert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +53,6 @@
 		979EAC802855DA1400EA587A /* ViewController + CustomBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + CustomBarButtonItem.swift"; sourceTree = "<group>"; };
 		97AD1B802855ED5200D543F5 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		97AD1B832855F57900D543F5 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
-		97E8B3C52857703600F9870E /* UIViewController+Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "../../../../../Downloads/UIViewController+Alert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +140,6 @@
 		97097B442851E3FB0078FED9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				97E8B3C52857703600F9870E /* UIViewController+Alert.swift */,
 				97097B452851E42E0078FED9 /* NetworkService.swift */,
 			);
 			path = Services;
@@ -318,7 +315,6 @@
 				97097B4A2851EA830078FED9 /* ProfileViewController.swift in Sources */,
 				97097B212851C9FC0078FED9 /* AppDelegate.swift in Sources */,
 				97097B3C2851CCEC0078FED9 /* MenuModel.swift in Sources */,
-				97E8B3C62857703600F9870E /* UIViewController+Alert.swift in Sources */,
 				97097B552851EB360078FED9 /* DetailPresenter.swift in Sources */,
 				97097B572851EB600078FED9 /* CollectionMenuPresenter.swift in Sources */,
 			);

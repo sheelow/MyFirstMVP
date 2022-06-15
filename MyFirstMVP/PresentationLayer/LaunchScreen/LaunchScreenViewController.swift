@@ -14,7 +14,7 @@ class LaunchScreenViewController: UIViewController {
         let nameLabel = UILabel()
         nameLabel.lineBreakMode = .byWordWrapping
         nameLabel.numberOfLines = 2
-        nameLabel.text = "Онлайн-ресторан 'Пусти слюну'"
+        nameLabel.text = "Онлайн-ресторан 'Помозоль глаза'"
         nameLabel.textColor = .black
         nameLabel.font = UIFont.systemFont(ofSize: 28)
         nameLabel.textAlignment = .center
