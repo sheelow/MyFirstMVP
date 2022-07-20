@@ -8,7 +8,12 @@
 import Foundation
 import UIKit
 
-final class NetworkService {
+protocol NetworkServiceProtocol {
+    func fetchMenuData(_ completion: @escaping ([MenuModel]) -> Void)
+    func fetchUserData(_ completion: @escaping (UserModel) -> Void)
+}
+
+final class NetworkService: NetworkServiceProtocol {
     
     func fetchMenuData(_ completion: @escaping ([MenuModel]) -> Void) {
         

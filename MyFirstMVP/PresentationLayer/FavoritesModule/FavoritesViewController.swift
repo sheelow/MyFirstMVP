@@ -8,22 +8,23 @@
 import UIKit
 import SnapKit
 
-class FavoritesViewController: UIViewController {
+//MARK: - FavoritesViewController
+final class FavoritesViewController: UIViewController {
 
     //MARK: - Properties
-    
-    
     private lazy var whiteView: UIView = {
         let whiteView = UIView()
         whiteView.backgroundColor = .white
         return whiteView
     }()
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
     }
     
+    //MARK: - Methods
     private func configureView() {
         view.backgroundColor = .systemGray5
         self.navigationItem.title = "Favorites"
@@ -38,5 +39,4 @@ class FavoritesViewController: UIViewController {
             make.height.equalTo(90)
         }
     }
-    
 }

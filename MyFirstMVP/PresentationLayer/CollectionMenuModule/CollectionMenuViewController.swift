@@ -40,7 +40,7 @@ final class CollectionMenuViewController: UIViewController {
         presenter.view = self
         presenter.viewDidLoad()
         configureNavigationBar()
-        view.backgroundColor = .systemGray4
+        view.backgroundColor = .white
         
     }
     
@@ -49,6 +49,7 @@ final class CollectionMenuViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    //MARK: - Methods
     private func configureNavigationBar() {
         self.navigationItem.title = "CollectionView"
         
@@ -63,7 +64,7 @@ final class CollectionMenuViewController: UIViewController {
     }
 }
 
-//MARK: - Extensions
+//MARK: - CollectionMenuViewProtocol
 extension CollectionMenuViewController: CollectionMenuViewProtocol {
     
     func configureCollectionView() {
@@ -80,6 +81,7 @@ extension CollectionMenuViewController: CollectionMenuViewProtocol {
     }
 }
 
+//MARK: - UICollectionViewDataSource, UICollectionViewDelegate
 extension CollectionMenuViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

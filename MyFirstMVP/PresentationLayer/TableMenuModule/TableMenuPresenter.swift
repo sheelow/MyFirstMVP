@@ -27,12 +27,8 @@ final class TableMenuPresenter: TableMenuPresenterProtocol {
     
     //MARK: - Properties
     weak var view: TableMenuViewProtocol?
-    private var service: NetworkService?
+    private var service: NetworkServiceProtocol? = NetworkService()
     private var model: [MenuModel] = []
-    
-    init() {
-        self.service = NetworkService()
-    }
     
     //MARK: - Methods
     func viewDidLoad() {

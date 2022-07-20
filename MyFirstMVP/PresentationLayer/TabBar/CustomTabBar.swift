@@ -9,11 +9,13 @@ import UIKit
 
 class CustomTabBar: UITabBarController {
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBar()
     }
     
+    //MARK: - Methods
     private func configureTabBar() {
         tabBar.backgroundColor = .white
         

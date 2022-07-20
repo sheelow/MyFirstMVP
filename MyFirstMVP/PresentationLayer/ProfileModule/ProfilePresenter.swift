@@ -25,17 +25,14 @@ final class ProfilePresenter: ProfilePresenterProtocol {
     
     //MARK: - Properties
     weak var view: ProfileViewProtocol?
-    private var service: NetworkService?
+    private var service: NetworkServiceProtocol? = NetworkService()
     private var model: UserModel = UserModel(name: "",
                                              lastName: "",
                                              phone: "",
                                              email: "",
                                              avatar: UIImage(imageLiteralResourceName: "ava"))
     
-    init() {
-        self.service = NetworkService()
-    }
-    
+    //MARK: - Methods
     func viewDidLoad() {
         fetchUserData()
     }

@@ -52,6 +52,7 @@ final class TableMenuViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    //MARK: - Methods
     private func configureSearchBar() {
         view.addSubview(searchBar)
         searchBar.snp.makeConstraints { make in

@@ -10,6 +10,7 @@ import SnapKit
 
 class LaunchScreenViewController: UIViewController {
     
+    //MARK: - Properties
     private lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.lineBreakMode = .byWordWrapping
@@ -28,11 +29,13 @@ class LaunchScreenViewController: UIViewController {
         return launchImage
     }()
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLaunchScreen()
     }
     
+    //MARK: - Methods
     private func configureLaunchScreen() {
         view.backgroundColor = .white
         

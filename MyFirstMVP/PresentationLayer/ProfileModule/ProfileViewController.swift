@@ -169,7 +169,7 @@ final class ProfileViewController: UIViewController {
     }
 }
 
-//MARK: - Extensions
+//MARK: - ProfileViewProtocol
 extension ProfileViewController: ProfileViewProtocol {
     func updateContent() {
         presenter.getData()

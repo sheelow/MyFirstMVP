@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 
+//MARK: - CollectionViewCustomCellModel
 struct CollectionViewCustomCellModel {
     let name: String
     let photo: UIImage

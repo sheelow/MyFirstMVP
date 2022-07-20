@@ -119,7 +119,7 @@ final class DetailViewController: UIViewController {
     }
 }
 
-//MARK: - Extensions
+//MARK: - DetailViewProtocol
 extension DetailViewController: DetailViewProtocol {
     
     func setContent(title: String, description: String, image: UIImage) {

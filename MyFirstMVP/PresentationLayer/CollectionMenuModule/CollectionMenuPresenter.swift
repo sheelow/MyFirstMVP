@@ -28,12 +28,8 @@ final class CollectionMenuPresenter: CollectionMenuPresenterProtocol {
     
     //MARK: - Properties
     weak var view: CollectionMenuViewProtocol?
-    private var service: NetworkService?
+    private var service: NetworkServiceProtocol? = NetworkService()
     private var model: [MenuModel] = []
-    
-    init() {
-        self.service = NetworkService()
-    }
     
     //MARK: - Methods
     func viewDidLoad() {
